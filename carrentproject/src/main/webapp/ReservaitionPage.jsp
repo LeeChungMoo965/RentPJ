@@ -13,40 +13,55 @@
     
     <%@ include file="nav.jsp"  %>
     <%@ include file="ReservaitionBlock.jsp"  %>
-    <table width="100%">
+    <table width="80%" style="margin-left :10%">
       <tr>
         <td align="left">
           <table>
             <tr>
-            <td>     
-            차량 종류
+            <td width="200px" align="left">     
+            <img  src="./img/TSLA-model-3.png" class="d-block w-100" alt="...">
+            </td>
+            <td  align="rligt" style="padding : 1rem">     
+            <b>테슬라 모델 3</b><br><hr>
+            <p>60,000원</p>
             </td>
             </tr>
             <tr>
-            <td>     
-            차량 종류
+            <td width="200px" align="left">     
+            <img  src="./img/TSLA-model-3.png" class="d-block w-100" alt="...">
+            </td>
+            <td  align="rligt" style="padding : 1rem">     
+            <b>테슬라 모델 3</b><br><hr>
+            <p>60,000원</p>
             </td>
             </tr>
             <tr>
-            <td>     
-            차량 종류
+            <td width="200px" align="left">     
+            <img  src="./img/TSLA-model-3.png" class="d-block w-100" alt="...">
+            </td>
+            <td  align="rligt" style="padding : 1rem">     
+            <b>테슬라 모델 3</b><br><hr>
+            <p>60,000원</p>
             </td>
             </tr>
             <tr>
-            <td>     
-            차량 종류
+            <td width="180px" align="left">     
+            <img  src="./img/TSLA-model-3.png" class="d-block w-100" alt="...">
+            </td>
+            <td  align="rligt" style="padding : 1rem">     
+            <b>테슬라 모델 3</b><br><hr>
+            <p>60,000원</p>
             </td>
             </tr>
             </table>
             </td>
-          <td align="center" >  
-            <div>
-             지도 //카카오 맵 API 연동 
+          <td width="60%" align="left" >  
+            <div >
+             <%@ include file="Map.jsp"  %>
             </div>
           </td>
         </tr>
       </table>
-    <div>
 
 <%@ include file="footer.jsp"  %>
 </div>
