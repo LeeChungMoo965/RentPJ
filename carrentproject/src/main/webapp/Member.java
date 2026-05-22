@@ -1,8 +1,8 @@
-package main.java.dto;
+package dto;
 
 import java.io.Serializable;
 
-public class Member implements Serializable{
+public class Member implements Serializable {
     private String Id;
     private String password;
     private String name;
