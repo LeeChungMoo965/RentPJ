@@ -3,7 +3,7 @@ package dto;
 import java.io.Serializable;
 
 public class Member implements Serializable {
-    private String Id;
+    private String id;
     private String password;
     private String name;
     private String gender;
@@ -17,7 +17,7 @@ public class Member implements Serializable {
     }
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public String getRegist_day() {
@@ -29,7 +29,7 @@ public class Member implements Serializable {
     }
 
     public void setId(String id) {
-        this.Id = id;
+        this.id = id;
     }
 
     public String getPassword() {
