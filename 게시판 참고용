@@ -1,0 +1,50 @@
+package dto;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.io.Serializable;
+import java.sql.Connection;
+import dao.ConnectionFactory;
+
+public class Qna implements Serializable{
+    private String id;
+    private String title;
+    private String text;
+    private String filename;
+    private String releasdate;
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    public Qna(){
+        super();
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public void setText(String text) {
+        this.text = text;
+    }
+    public String getId() {
+        return id;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public String getText() {
+        return text;
+    }
+    public String getReleasdate() {
+        return releasdate;
+    }
+    public void setReleasdate(String releasdate) {
+        this.releasdate = releasdate;
+    }
+}
