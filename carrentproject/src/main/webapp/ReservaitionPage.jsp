@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-<html>
+
 <head>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,55 +12,13 @@
 <div class="container">
     
     <%@ include file="nav.jsp"  %>
+   
     <%@ include file="ReservaitionBlock.jsp"  %>
-    <table width="80%" style="margin-left :10%">
-      <tr>
-        <td align="left">
-          <table>
-            <tr>
-            <td width="200px" align="left">     
-            <img  src="./img/TSLA-model-3.png" class="d-block w-100" alt="...">
-            </td>
-            <td  align="rligt" style="padding : 1rem">     
-            <b>테슬라 모델 3</b><br><hr>
-            <p>60,000원</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="200px" align="left">     
-            <img  src="./img/TSLA-model-3.png" class="d-block w-100" alt="...">
-            </td>
-            <td  align="rligt" style="padding : 1rem">     
-            <b>테슬라 모델 3</b><br><hr>
-            <p>60,000원</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="200px" align="left">     
-            <img  src="./img/TSLA-model-3.png" class="d-block w-100" alt="...">
-            </td>
-            <td  align="rligt" style="padding : 1rem">     
-            <b>테슬라 모델 3</b><br><hr>
-            <p>60,000원</p>
-            </td>
-            </tr>
-            <tr>
-            <td width="180px" align="left">     
-            <img  src="./img/TSLA-model-3.png" class="d-block w-100" alt="...">
-            </td>
-            <td  align="rligt" style="padding : 1rem">     
-            <b>테슬라 모델 3</b><br><hr>
-            <p>60,000원</p>
-            </td>
-            </tr>
-            </table>
-            </td>
-          <td width="60%" align="left" >  
-            <div >
+    
+            <div class="rounded">
              <%@ include file="Map.jsp"  %>
             </div>
-          </td>
-        </tr>
+     
       </table>
 
 <%@ include file="footer.jsp"  %>
