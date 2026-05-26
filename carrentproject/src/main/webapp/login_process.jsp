@@ -20,7 +20,7 @@
             // 체크박스가 켜져 있으면 사용자의 ID를 담은 쿠키 생성
             Cookie cookie = new Cookie("userCookieId", id);
             cookie.setMaxAge(60 * 60);  // 쿠키 유효 기간: 1시간 (초 단위)
-            id.setPath("/");
+            cookie.setPath("/");
             response.addCookie(cookie); // 브라우저로 쿠키 전송
         } else {
             // 체크박스가 꺼져 있으면 기존 쿠키 삭제 처리
