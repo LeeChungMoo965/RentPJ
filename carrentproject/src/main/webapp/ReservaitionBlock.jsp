@@ -12,7 +12,7 @@
 <div class="container">
     <div>
         <br><br><br>
-        <form action="Reservaitionpage.jsp" method="post">
+        <form action="ReservaitionPage.jsp" method="post">
         <table width="80%" style="margin-left : 10%;  ">
             <tr>
                 <th align="left">
@@ -23,65 +23,10 @@
                         대여
                         </td>
                         <td align="left">
-                            <select class="form-select" name="month1">
-                                <option selected>월 선택</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                            
-                        </td>
-                        <td>
-                        <h4><pre> 월 </pre></h4>
-                            </td>
-                        <td>
-                        
-                            <select class="form-select" name="day1">
-                                <option selected>일 선택</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                            </select>
+                           <input type="date" name="day1" class="form-control form-control-lg rounded-3">
                             </td>
                             <td>
-                            <h4><pre> 일 </pre></h4>
+                            <h4><pre style='font-family: "Jua", sans-serif;font-weight: 100;font-style: normal;'> / </pre></h4>
                             </td>
                             <td>
                             <select class="form-select" name="hour1">
@@ -113,7 +58,7 @@
                     </select>
                     </td>
                     <td>
-                    <h4><pre> : </pre></h4>
+                    <h4><pre style='font-family: "Jua", sans-serif;font-weight: 100;font-style: normal;'> : </pre></h4>
                     </td>
                     <td align="right">
                  
@@ -140,7 +85,7 @@
                 </td>
                 <th align="right">
                     <div class="input-group mb-3">
-                        <button type="button" class="btn btn-info">검색</button>
+                        <input type="submit" value="검색"class="btn btn-info" />
                     </div>
                 </th>
             </tr>
@@ -153,65 +98,11 @@
                         반납
                         </td>
                         <td align="left">
-                            <select class="form-select" name="month2">
-                                <option selected>월 선택</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                        </td>
-                        <td>
-                            <h4><pre> 월 </pre></h4>
-                            </td>
-                        <td>
-                        
-                            <select class="form-select" name="day2">
-                                <option selected>일 선택</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                            </select>
+                            <input type="date" name="day2" class="form-control form-control-lg rounded-3">
                             
                             </td>
                             <td>
-                            <h4><pre> 일 </pre></h4>
+                            <h4><pre style='font-family: "Jua", sans-serif;font-weight: 100;font-style: normal;'> / </pre></h4>
                             </td>
                             <td>
                             <select class="form-select" name="hour2">
@@ -243,7 +134,7 @@
                     </select>
                     </td>
                     <td>
-                    <h4><pre> : </pre></h4>
+                    <h4><pre style='font-family: "Jua", sans-serif;font-weight: 100;font-style: normal;'> : </pre></h4>
                     </td>
                     <td align="right">
                  
