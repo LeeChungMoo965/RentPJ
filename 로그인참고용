@@ -1,0 +1,65 @@
+package dto;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Connection;
+import dao.ConnectionFactory;
+public class Login {
+    private Connection conn;
+
+    public Login()throws ClassNotFoundException, SQLException{
+        ConnectionFactory conn= new ConnectionFactory();
+        conn.setconnect();
+        this.conn = conn.getconnect();
+    }
+    public boolean loginCheck(String id,String pw ) {
+        int a = 0;
+        try{    
+            String sql = new StringBuilder()
+                .append("SELECT *")
+                .append(" FROM BK_MEMBERS ")
+                .append(" WHERE id =? ")
+                .toString();
+                PreparedStatement pstmt = conn.prepareStatement(sql); 
+                pstmt.setString(1, id);
+            
+                ResultSet rs = pstmt.executeQuery();
+
+                if(rs.next()){
+                    if(pw.equals(rs.getString("pw"))){
+                        a++;
+                    }
+                }  
+                
+            pstmt.close();
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+        if(a == 0) {return false;}
+        return true;
+    }
+    public void addMember(Member mem){
+        
+        try{
+            String sql = new StringBuilder()
+            .append("INSERT INTO BK_MEMBERS (id,pw,name,phone,sex,hobby,REG_DATE)")
+            .append(" VALUES (?,?,?,?,?,?,SYSDATE)")
+            .toString();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, mem.getId());
+            pstmt.setString(2, mem.getPw());
+            pstmt.setString(3, mem.getName());
+            pstmt.setString(4, mem.getPhone());
+            pstmt.setString(5, mem.getSex());
+            pstmt.setString(6, mem.getHobby());
+            int rows = pstmt.executeUpdate();
+            if(rows == 1){
+            }
+            pstmt.close();
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+        
+    }
+}
