@@ -48,3 +48,127 @@ public class Qna implements Serializable{
         this.releasdate = releasdate;
     }
 }
+
+
+
+
+ public Boolean addQna(Qna qna){
+        try{
+            String sql = new StringBuilder()
+            .append("INSERT INTO Qna (id, title, text, filename, releasDate)")
+            .append(" VALUES (?,?,?,?,SYSDATE)")
+            .toString();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, qna.getId());
+            pstmt.setString(2, qna.getTitle());
+            pstmt.setString(3, qna.getText());
+            pstmt.setString(4, qna.getFilename());
+ 
+            
+            int rows = pstmt.executeUpdate();
+            if(rows == 1){
+                System.out.println("추가 성공! ");
+                conn.commit();
+                return true;
+            }
+            pstmt.close();
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+        return false;
+    }
+
+
+
+package dao;
+import java.util.ArrayList;
+import dto.*;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+
+
+public class QnaRepository {
+    private Connection conn;
+    private ArrayList<Qna> listofQnas = new ArrayList<Qna>();
+
+    public QnaRepository() {
+        try{
+        ConnectionFactory con= new ConnectionFactory();
+        con.setconnect();
+        this.conn = con.getconnect();
+        }catch(SQLException e){
+            System.out.println(e);
+        }catch(ClassNotFoundException e){
+            System.out.println(e);
+        }
+        
+
+    }
+    
+    public ArrayList<Qna> getListofQnas() {
+      
+        try{    
+            String sql = new StringBuilder()
+                .append("SELECT *")
+                .append(" FROM QNA ")
+                .toString();
+                PreparedStatement pstmt = conn.prepareStatement(sql);            
+                ResultSet rs = pstmt.executeQuery();
+                while(true){
+                if(rs.next()){
+                    Qna qna = new Qna();
+                    qna.setReleasdate(rs.getString("releasDate"));
+                    qna.setId(rs.getString("id"));
+                    qna.setTitle(rs.getString("title"));
+                    qna.setText(rs.getString("text"));
+                    listofQnas.add(qna);
+                }  else{
+                    break;
+                }
+
+            }
+            pstmt.close();
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+        
+        return listofQnas;
+    }
+
+
+    
+    
+    public Qna getQnaById(String userId){
+        Qna qnaById = null;
+
+        
+
+        for( int i =0; i< listofQnas.size(); i++){
+            Qna qna= listofQnas.get(i);
+            if(qna!=null && qna.getId()!= null && qna.getId().equals(userId)){
+                qnaById = qna;
+                break;
+            } 
+
+        }
+        return qnaById;
+    }
+    public Qna getQnaByTitle(String title){
+        Qna qnaByTitle = null;
+
+        
+
+        for( int i =0; i< listofQnas.size(); i++){
+            Qna qna= listofQnas.get(i);
+            if(qna!=null && qna.getTitle()!= null && qna.getTitle().equals(title)){
+                qnaByTitle = qna;
+                break;
+            } 
+
+        }
+        return qnaByTitle;
+    }
+    
+}
