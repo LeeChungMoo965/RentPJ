@@ -24,7 +24,7 @@
 
 <div id="map" style="width:90%;height:500px;"></div>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9cb4cac4be619243c0723e8c60080f95&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=&libraries=services"></script>
 <script>
 
 var mapContainer = document.getElementById('map'), 
