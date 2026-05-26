@@ -4,12 +4,13 @@ public class Car implements Serializable {
     private String carid;
     private String carname;
     private int carprice;
-    private String peopel;
+    private int people;
     private String oil;
     private String color;
     private int distancy;
-    private String able ;
-    private String location ;
+    private String endtime ;
+    private String locationX;
+    private String locationY;
     private String fileName;
     private String releasDate;
         public void setDistancy(int distancy) {
@@ -46,11 +47,11 @@ public class Car implements Serializable {
     public void setCarprice(int carprice) {
         this.carprice = carprice;
     }
-    public String getPeopel() {
-        return peopel;
+    public int getPeople() {
+        return people;
     }
-    public void setPeopel(String peopel) {
-        this.peopel = peopel;
+    public void setPeople(int people) {
+        this.people = people;
     }
     public String getOil() {
         return oil;
@@ -64,11 +65,11 @@ public class Car implements Serializable {
     public void setColor(String color) {
         this.color = color;
     }
-    public String getAble() {
-        return able;
+    public String getEndtime() {
+        return endtime;
     }
-    public void setAble(String able) {
-        this.able = able;
+    public void setEndtime(String time) {
+        this.endtime = time;
     }
     public String getFileName() {
         return fileName;
@@ -76,10 +77,16 @@ public class Car implements Serializable {
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
-    public String getLocation() {
-        return location;
+    public String getLocationX() {
+        return locationX;
     }
-    public void setLocation(String location) {
-        this.location = location;
+    public void setLocationX(String locationX) {
+        this.locationX = locationX;
+    }
+    public String getLocationY() {
+        return locationY;
+    }
+    public void setLocationY(String locationY) {
+        this.locationY = locationY;
     }
 }
