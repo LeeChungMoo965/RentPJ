@@ -9,6 +9,7 @@ public class Car implements Serializable {
     private String color;
     private int distancy;
     private String endtime ;
+    private String starttime ;
     private String locationX;
     private String locationY;
     private String fileName;
@@ -18,6 +19,12 @@ public class Car implements Serializable {
     }
     public String getReleasDate() {
         return releasDate;
+    }
+    public String getStarttime() {
+        return starttime;
+    }
+    public void setStarttime(String starttime) {
+        this.starttime = starttime;
     }
     public void setReleasDate(String releasDate) {
         this.releasDate = releasDate;
