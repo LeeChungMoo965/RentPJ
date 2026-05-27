@@ -24,7 +24,10 @@ public class AddMember {
             conn = factory.getconnect();
 
             // 실행할 sql 쿼리
-            String sql = "INSERT INTO member VALUES(?, ?, ?, ?, ?, ?, ?, ?, SYSDATE)";
+            // SQL 삽입 구문 수정
+            String sql = "INSERT INTO member "
+                        + "(id, password, name, gender, birth, mail, phone, address, regist_day) "
+                        + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, SYSDATE)";
     
             // 쿼리를 안전하게 실행하기 위해 PreparedStatement 객체 생성
             pstmt = conn.prepareStatement(sql);
@@ -34,8 +37,8 @@ public class AddMember {
             pstmt.setString(3, member.getName());
             pstmt.setString(4, member.getGender());
             pstmt.setString(5, member.getBirth());
-            pstmt.setString(6, member.getPhone());
-            pstmt.setString(7, member.getEmail());
+            pstmt.setString(6, member.getEmail()); // 6번째 열 삽입
+            pstmt.setString(7, member.getPhone()); // 7번쩨 열 삽입
             pstmt.setString(8, member.getAddress());
     
             // 데이터베이스에 INSERT 쿼리를 실행 (성공 시 1 이상의 행 수가 반환)
