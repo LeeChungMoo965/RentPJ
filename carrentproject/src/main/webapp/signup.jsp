@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
       rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="./resources/js/validation.js"></script>
 <title>회원가입</title>
 </head>
 <body style='font-family: "Jua", sans-serif;font-weight: 100;font-style: normal;'>
@@ -16,20 +17,20 @@
 <div class="container py-4">
     <div class="p-5 mb-4 bg-body-tertiary rounded-3">
         <h2 class="text-center mb-4">회원가입</h2>
-        <form action="signup_process.jsp" method="post">
+        <form name= "signup" action="signup_process.jsp" method="post">
             <div class="mb-4">
                 <label class="form-label">아이디</label>
-                <input type="text" name="id" class="form-control form-control-lg rounded-3" placeholder="아이디를 입력하세요" required>
+                <input type="text" id="id" name="id" class="form-control form-control-lg rounded-3" placeholder="아이디를 입력하세요" required>
             </div>
 
             <div class="mb-4">
                 <label class="form-label">비밀번호</label>
-                <input type="password" name="password" class="form-control form-control-lg rounded-3" placeholder="비밀번호를 입력하세요" required>
+                <input type="password" id="password" name="password" class="form-control form-control-lg rounded-3" placeholder="비밀번호를 입력하세요" required>
             </div>
 
             <div class="mb-4">
                 <label class="form-label">이름</label>
-                <input type="text" name="name" class="form-control form-control-lg rounded-3" placeholder="홍길동" required>
+                <input type="text" id="name" name="name" class="form-control form-control-lg rounded-3" placeholder="홍길동" required>
             </div>
 
             <div class="mb-4">
@@ -52,21 +53,21 @@
 
             <div class="mb-4">
                 <label class="form-label">전화번호</label>
-                <input type="text" name="phone" class="form-control form-control-lg rounded-3" placeholder="010-1234-5678">
+                <input type="text" id="phone" name="phone" class="form-control form-control-lg rounded-3" placeholder="010-1234-5678">
             </div>
 
             <div class="mb-4">
                 <label class="form-label">이메일</label>
-                <input type="email" name="email" class="form-control form-control-lg rounded-3" placeholder="example@email.com">
+                <input type="email" id="email" name="email" class="form-control form-control-lg rounded-3" placeholder="example@email.com">
             </div>
 
             <div class="mb-4">
                 <label class="form-label">주소</label>
-                <input type="text" name="address" class="form-control form-control-lg rounded-3" placeholder="주소를 입력해주세요">
+                <input type="text" id="address" name="address" class="form-control form-control-lg rounded-3" placeholder="주소를 입력해주세요">
             </div>
 
             <div class="d-grid">
-                <button type="submit" class="btn btn-primary btn-lg rounded-3">회원가입</button>
+                <button type="submit" class="btn btn-primary btn-lg rounded-3" onclick="checkSignup()">회원가입</button>
             </div>
         </form>
 
