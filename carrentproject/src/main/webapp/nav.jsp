@@ -1,4 +1,13 @@
 <%@ page contentType="text/html; charset=utf-8" %>
+<%@ page import="dto.*" %>
+<%@ page import="dao.*" %>
+<%@ page import="java.util.*"%>
+<%@ page import="java.io.*"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="jakarta.servlet.http.*"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.net.URLClassLoader" %>
+<%@ page import="java.net.URLDecoder" %>
 <html>
 <head>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +28,7 @@
             <tr style="margin-left : 1rem">
                 
                         <th>
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="home.jsp">Home</a>
                         </th>
                         <th>
                             <a class="nav-link" href="./ReservaitionPage.jsp">예약</a>
@@ -31,15 +40,39 @@
         </table> 
         </div>
         </div>
+        <% request.setCharacterEncoding("utf-8");
+            Cookie[] cookies = request.getCookies();
+            String user_id="";
+
+            if(cookies!=null){
+                    for (int i= 0; i < cookies.length; i++){
+                    Cookie thisCookie = cookies[i];
+                    String n = thisCookie.getName();
+                    if(n.equals("userCookieId"))
+                            user_id = URLDecoder.decode((thisCookie.getValue()),"utf-8");
+                            
+                    }
+        %>
         <ul class="nav justify-content-end" >
+        
+       
         <li class="nav-item">
-            <a class="nav-link" href="#" style="color : balck">로그인</a>
+            <%=user_id%>님 환영합니다 !
+        </li>
+        <% 
+        }else{
+%>
+    <ul class="nav justify-content-end" >
+        
+        <li class="nav-item">
+            <a class="nav-link" href="login.jsp" style="color : balck">로그인</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#" style="color : balck">회원가입</a>
+            <a class="nav-link" href="signup.jsp" style="color : balck">회원가입</a>
         </li>
-        </ul>   
+    <% } %>
     </div>
+
     </nav>
 </body>
 </html>
