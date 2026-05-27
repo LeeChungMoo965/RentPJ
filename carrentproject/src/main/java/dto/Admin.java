@@ -20,8 +20,8 @@ public class Admin extends Car{
     public void addCar(Car car){
         try{
             String sql = new StringBuilder()
-            .append("INSERT INTO CAR (carid,carname,carprice,people,oil,color,distancy,endtime,locationX,locationY,filename,releasDate)")
-            .append(" VALUES (?,?,?,?,?,?,?,(TO_DATE(?,'YYYY-MM-DD HH24:MI')),?,?,?,SYSDATE)")
+            .append("INSERT INTO CAR (carid,carname,carprice,people,oil,color,distancy,endtime,starttime,locationX,locationY,filename,releasDate)")
+            .append(" VALUES (?,?,?,?,?,?,?,TO_DATE(?,'YYYY-MM-DD-HH24-MI'),TO_DATE(?,'YYYY-MM-DD-HH24-MI'),?,?,?,SYSDATE)")
             .toString();
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, car.getCarid());
@@ -32,9 +32,10 @@ public class Admin extends Car{
             pstmt.setString(6, car.getColor());
             pstmt.setInt(7, car.getDistancy());
             pstmt.setString(8, car.getEndtime());
-            pstmt.setString(9, car.getLocationX());
-            pstmt.setString(10, car.getLocationY());
-            pstmt.setString(11, car.getFileName());
+            pstmt.setString(9, car.getStarttime());
+            pstmt.setString(10, car.getLocationX());
+            pstmt.setString(11, car.getLocationY());
+            pstmt.setString(12, car.getFileName());
             
 
 
@@ -61,7 +62,7 @@ public class Admin extends Car{
       
         try{    
             String sql = new StringBuilder()
-                .append("SELECT carid,carname,carprice,people,oil,color,distancy,locationX,locationY,filename,releasDate")
+                .append("SELECT carid,carname,carprice,people,oil,color,distancy,locationX,locationY,filename,releasDate,TO_CHAR(endtime, 'YYYY-MM-DD-HH24-MI') AS etime,TO_CHAR(starttime, 'YYYY-MM-DD-HH24-MI') AS stime")
                 .append(" FROM CAR ")
                 .toString();
                 PreparedStatement pstmt = conn.prepareStatement(sql);            
@@ -79,6 +80,8 @@ public class Admin extends Car{
                     car.setLocationX(rs.getString("locationX"));
                     car.setLocationY(rs.getString("locationY"));
                     car.setDistancy(rs.getInt("distancy"));
+                    car.setEndtime(rs.getString("etime"));
+                    car.setStarttime(rs.getString("stime"));
                     listofCars.add(car);
                 }  else{
                     break;
@@ -107,5 +110,32 @@ public class Admin extends Car{
         }
         return carById;
     }
+    public void addTime(String carid,String day1, String day2){
+        Connection conn = null;
+        
+            try{
+                String sql = new StringBuilder()
+                .append("UPDATE CAR SET ")
+                .append("starttime =TO_DATE(?,'YYYY-MM-DD-HH24-MI'), endtime =TO_DATE(?,'YYYY-MM-DD-HH24-MI')")
+                .append("WHERE carid = ?")
+                .toString();
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1, day1);
+                pstmt.setString(2, day2);
+                pstmt.setString(3, carid);
+                
+
+
+                int rows = pstmt.executeUpdate();
+                if(rows == 1){
+                    System.out.println("수정 성공! ");
+                }
+                pstmt.close();
+            }catch(SQLException e){
+                System.out.println(e);
+            }
+          
+    }
+
 
 }
