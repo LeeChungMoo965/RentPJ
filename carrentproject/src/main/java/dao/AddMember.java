@@ -2,7 +2,6 @@ package dao;
 import java.sql.SQLException;
 import dto.Member;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.Connection;
 
 public class AddMember {
@@ -13,7 +12,6 @@ public class AddMember {
         
         Connection conn = null;
         PreparedStatement pstmt = null;
-        ResultSet rs = null;
 
         // 회원가입 데이터 저장의 성공 여부 체크 (초기값: false) - AI 도움을 받아 코드를 작성
         boolean isSuccess = false;
@@ -52,7 +50,6 @@ public class AddMember {
             e.printStackTrace();
         } finally {
             // 자원 최종 반납
-            if (rs != null) { try { rs.close(); } catch (SQLException e) {} }
             if (pstmt != null) { try { pstmt.close(); } catch (SQLException e) {} }
             if (conn != null) { try { conn.close(); } catch (SQLException e) {} }
         }
