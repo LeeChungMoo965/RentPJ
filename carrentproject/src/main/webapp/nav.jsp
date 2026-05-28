@@ -43,7 +43,7 @@
         <% request.setCharacterEncoding("utf-8");
             Cookie[] cookies = request.getCookies();
             String user_id="";
-
+            
             if(cookies!=null){
                     for (int i= 0; i < cookies.length; i++){
                     Cookie thisCookie = cookies[i];
@@ -52,6 +52,8 @@
                             user_id = URLDecoder.decode((thisCookie.getValue()),"utf-8");
                             
                     }
+            }
+            if(user_id == null){
         %>
         <ul class="nav justify-content-end" >
         
