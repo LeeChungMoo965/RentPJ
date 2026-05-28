@@ -72,11 +72,11 @@ public class Member implements Serializable {
         this.phone = phone;
     }
 
-    public String getmail() {
+    public String getMail() {
         return mail;
     }
 
-    public void setEmail(String mail) {
+    public void setMail(String mail) {
         this.mail = mail;
     }
 
