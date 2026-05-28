@@ -48,7 +48,6 @@
         <tr>
             <th>이름</th>
             <td><input type="text" name="name" value="<%=member.getName()%>"></td>
-            </tr>
         </tr>
 
         <tr>
