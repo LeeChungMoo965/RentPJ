@@ -3,7 +3,7 @@ function checkSignup() {
   var password = document.getElementById("password");
   var name = document.getElementById("name");
   var phone = document.getElementById("phone");
-  var email = document.getElementById("email");
+  var email = document.getElementById("mail");
   var address = document.getElementById("address");
 
   // 아이디 검사
@@ -28,9 +28,9 @@ function checkSignup() {
     return false;
   }
 
-  if (!/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i.test(email.value)) {
+  if (!/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i.test(mail.value)) {
     alert("[이메일]\n올바른 이메일 형식을 입력하세요");
-    email.focus();
+    mail.focus();
     return false;
   }
 
