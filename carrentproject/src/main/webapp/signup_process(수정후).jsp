@@ -12,7 +12,7 @@
     member.setGender(request.getParameter("gender"));
     member.setBirth(request.getParameter("birth"));
     member.setPhone(request.getParameter("phone"));
-    member.setEmail(request.getParameter("email"));
+    member.setMail(request.getParameter("mail"));
     member.setAddress(request.getParameter("address"));
     
     AddMember addmember = new AddMember();
