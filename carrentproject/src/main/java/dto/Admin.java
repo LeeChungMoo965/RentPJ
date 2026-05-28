@@ -24,7 +24,7 @@ public class Admin extends Car{
             .append(" VALUES (?,?,?,?,?,?,?,TO_DATE(?,'YYYY-MM-DD-HH24-MI'),TO_DATE(?,'YYYY-MM-DD-HH24-MI'),?,?,?,SYSDATE)")
             .toString();
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, car.getCarid());
+            pstmt.setInt(1, car.getCarid());
             pstmt.setString(2, car.getCarname());
             pstmt.setInt(3, car.getCarprice());
             pstmt.setInt(4, car.getPeople());
@@ -95,14 +95,14 @@ public class Admin extends Car{
         
         return listofCars;
     }
-    public Car getCarById(String carid){
+    public Car getCarById(int carid){
         Car carById = null;
 
         
 
         for( int i =0; i< listofCars.size(); i++){
             Car car= listofCars.get(i);
-            if(car!=null && car.getCarid()!= null && car.getCarid().equals(carid)){
+            if(car!=null && car.getCarid()!= 0 && car.getCarid() == carid){
                 carById = car;
                 break;
             } 
@@ -110,9 +110,7 @@ public class Admin extends Car{
         }
         return carById;
     }
-    public void addTime(String carid,String day1, String day2){
-        Connection conn = null;
-        
+    public void addTime(int carid,String day1, String day2){      
             try{
                 String sql = new StringBuilder()
                 .append("UPDATE CAR SET ")
@@ -122,7 +120,7 @@ public class Admin extends Car{
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, day1);
                 pstmt.setString(2, day2);
-                pstmt.setString(3, carid);
+                pstmt.setInt(3, carid);
                 
 
 
@@ -136,6 +134,72 @@ public class Admin extends Car{
             }
           
     }
+    public void addPayInfo(PayInfo info){
+        try{
+            String sql = new StringBuilder()
+            .append("INSERT INTO PAY_INFO (id,carid,total_price,releasDate)")
+            .append(" VALUES (?,?,?,SYSDATE)")
+            .toString();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, info.getId());
+            pstmt.setInt(2, info.getCarid());
+            pstmt.setDouble(3, info.getTotal_price());
+            
+            
 
 
+
+            
+            
+            int rows = pstmt.executeUpdate();
+            if(rows == 1){
+                System.out.println("추가 성공! ");
+                conn.commit();
+            }
+            pstmt.close();
+        }catch(SQLException e){
+            System.out.println(e);
+        }finally{
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+    }
+    public void addReservation(Reservation info){
+        try{
+            String sql = new StringBuilder()
+            .append("INSERT INTO RESERVATION (ID,carid,starttime,endtime,REGIST_DAY)")
+            .append(" VALUES (?,?,TO_DATE(?,'YYYY-MM-DD-HH24-MI'),TO_DATE(?,'YYYY-MM-DD-HH24-MI'),SYSDATE)")
+            .toString();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, info.getId());
+            pstmt.setInt(2, info.getCarid());
+            pstmt.setString(3, info.getStarttime());
+            pstmt.setString(4, info.getEndtime());
+            
+            
+
+
+
+            
+            
+            int rows = pstmt.executeUpdate();
+            if(rows == 1){
+                System.out.println("추가 성공! ");
+                conn.commit();
+            }
+            pstmt.close();
+        }catch(SQLException e){
+            System.out.println(e);
+        }finally{
+            
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+    }
 }
