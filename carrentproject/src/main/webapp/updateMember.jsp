@@ -48,6 +48,7 @@
         <tr>
             <th>이름</th>
             <td><input type="text" name="name" value="<%=member.getName()%>"></td>
+            </tr>
         </tr>
 
         <tr>
@@ -82,8 +83,9 @@
     </table>
     <div class="text-center mt-3">
         <button type="submit" class="btn btn-primary">수정하기</button>
-        <a href="myPage.jsp" class="btn btn-primary" onclick="return confirm('회원정보 수정을 취소하시겠습니까?')">취소</a>
+        <a href="myPage.jsp" class="btn btn-primary" onclick="return confirm('회원정보를 수정하시겠습니까?')">취소</a>
     </div>
+    </form>
 </div>
 </body>
 </html>
