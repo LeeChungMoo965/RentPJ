@@ -35,7 +35,7 @@ public class AddMember {
             pstmt.setString(3, member.getName());
             pstmt.setString(4, member.getGender());
             pstmt.setString(5, member.getBirth());
-            pstmt.setString(6, member.getEmail()); // 6번째 열 삽입
+            pstmt.setString(6, member.getMail()); // 6번째 열 삽입
             pstmt.setString(7, member.getPhone()); // 7번쩨 열 삽입
             pstmt.setString(8, member.getAddress());
     
