@@ -1,0 +1,77 @@
+1. 아반떼
+carname: 아반떼
+carprice: 50000
+people: 5
+oil: 휘발유
+color: 하얀색
+distancy: 18000
+locationX: 36.359175
+locationY: 127.381639
+filename: avante.jpg
+
+2. 기아 K5
+carname: K5
+carprice: 60000
+people: 5
+oil: 휘발유
+color: 블랙
+distancy: 25000
+locationX: 36.311871
+locationY: 127.320827
+filename: k5.jpg
+
+3. 쏘렌토
+carname: 쏘렌토
+carprice: 70000
+people: 7
+oil: 휘발유
+color: 그레이
+distancy: 27000
+locationX: 36.350704
+locationY: 127.376819
+filename: sorento.jpg
+
+4. 카니발
+carname: 카니발
+carprice: 75000
+people: 9
+oil: 경유
+color: 화이트
+distancy: 30000
+locationX: 36.353148
+locationY: 127.380499
+filename: carnival.jpg
+
+5. 니로
+carname: 카니발
+carprice: 65000
+people: 5
+oil: 전기
+color: 화이트
+distancy: 35000
+locationX: 36.355187
+locationY: 127.378289
+filename: niro.jpg
+
+6. 투싼
+carname: 투싼
+carprice: 65000
+people: 5
+oil: 휘발유
+color: 화이트
+distancy: 37000
+locationX: 36.341625
+locationY: 127.366395
+filename: tucson.jpg
+
+7. 그랜저
+carname: 그랜저
+carprice: 55000
+people: 5
+oil: 휘발유
+color: 검은색
+distancy: 40000
+locationX: 36.349541
+locationY: 127.374763
+filename: tucson.jpg
+
