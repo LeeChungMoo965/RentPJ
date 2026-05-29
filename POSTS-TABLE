@@ -4,6 +4,5 @@ CREATE TABLE posts (
     content CLOB CONSTRAINT NN_POSTS_CONTENT NOT NULL,
     writer VARCHAR2(10) CONSTRAINT NN_POSTS_WRITER NOT NULL,
     created_date DATE DEFAULT SYSDATE,
-    updated_date DATE,
-    CONSTRAINT FK_POSTS_WRITER FOREIGN KEY(writer) REFERENCES member(id)
+    updated_date DATE
 );
