@@ -52,7 +52,7 @@
         <div class="col-md-3 mb-3">
             <div class="card p-4">
                 <h5>회원 탈퇴</h5>
-                <a href="deleteReservation.jsp" class="btn btn-dark mt-3">탈퇴하기</a>
+                <a href="deleteMember.jsp" class="btn btn-dark mt-3">탈퇴하기</a>
             </div>
         </div>
     </div>
