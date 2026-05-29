@@ -2,16 +2,20 @@
 <%@ page import="dto.Member" %>
 <%@ page import="dao.GetMember" %>
 
+<html>
+<head>
+<title>회원 정보</title>
+</head>
+<body style='font-family: "Jua", sans-serif;font-weight: 100;font-style: normal;'>
+<%@ include file="nav.jsp"  %>
 <%
-    String sessionId = (String) session.getAttribute("sessionId");
-    
-    if (sessionId == null) {
+    if (user_id == null) {
         response.sendRedirect("login.jsp");
         return; 
     }
 
     GetMember getmember = new GetMember();
-    Member member = getmember.selectMember(sessionId);
+    Member member = getmember.selectMember(user_id);
 
     // DB에 세션 ID에 해당하는 회원 정보가 없을 경우의 예외 처리 작업 (AI 도움)
     if (member == null) {
@@ -19,12 +23,6 @@
         return;
     }
 %>
-<html>
-<head>
-<title>회원 정보</title>
-</head>
-<body style='font-family: "Jua", sans-serif;font-weight: 100;font-style: normal;'>
-<%@ include file="nav.jsp"  %>
 <div class="container py-4">
     <div class="p-5 mb-4 bg-body-tertiary rounded-3">
         <div class="container-fluid py-5">
