@@ -7,14 +7,16 @@ import java.sql.Connection;
 
 public class ModifyMember {
 
+    // 팩토리 개체 생성
+    ConnectionFactory factory = new ConnectionFactory();
+
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    Member member = null;
+
     // 회원 정보 수정하기 전 기본 정보 출력
     public Member getMemberById(String id) {
-        ConnectionFactory factory = new ConnectionFactory();
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        Member member = null;
-
         try {
             factory.setconnect();
             conn = factory.getconnect();
@@ -49,12 +51,6 @@ public class ModifyMember {
     }
 
     public boolean updateMember(Member member){
-    
-    // 팩토리 개체 생성
-    ConnectionFactory factory = new ConnectionFactory();
-
-    Connection conn = null;
-    PreparedStatement pstmt = null;
     
     boolean isSuccess = false;
 
