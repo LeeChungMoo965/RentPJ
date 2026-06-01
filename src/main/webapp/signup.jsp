@@ -58,7 +58,7 @@
 
             <div class="mb-4">
                 <label class="form-label">이메일</label>
-                <input type="email" id="email" name="email" class="form-control form-control-lg rounded-3" placeholder="example@email.com">
+                <input type="email" id="mail" name="mail" class="form-control form-control-lg rounded-3" placeholder="example@email.com">
             </div>
 
             <div class="mb-4">
