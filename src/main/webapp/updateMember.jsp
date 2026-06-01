@@ -83,7 +83,7 @@
     </table>
     <div class="text-center mt-3">
         <button type="submit" class="btn btn-primary">수정하기</button>
-        <a href="myPage.jsp" class="btn btn-primary" onclick="return confirm('회원정보를 수정하시겠습니까?')">취소</a>
+        <a href="MyPage.jsp" class="btn btn-primary" onclick="return confirm('회원정보수정을 취소하시겠습니까?')">취소</a>
     </div>
     </form>
 </div>
