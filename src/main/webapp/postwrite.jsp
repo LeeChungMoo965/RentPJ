@@ -12,13 +12,13 @@
 <body style='font-family: "Jua", sans-serif; font-weight: 100; font-style: normal;'>
     <%@ include file="nav.jsp"  %>
     <%
-    if (user_id == null) {
-        out.println("<script>");
-        out.println("alert('로그인이 필요합니다.');");
-        out.println("location.href='login.jsp';");
-        out.println("</script>");
-        return; 
-    }
+    if (user_id == null || user_id.trim().equals("")) {
+    out.println("<script>");
+    out.println("alert('로그인이 필요합니다.');");
+    out.println("location.href='login.jsp';");
+    out.println("</script>");
+    return;
+    } 
 %>
     <div class="container py-4">
         <div class="p-5 mb-4 bg-body-tertiary rounded-3">
