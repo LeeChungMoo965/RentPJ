@@ -64,7 +64,7 @@
             </tr>
         </table>
         <div class="text-center mt-3">
-            <button type="submit" class="btn btn-danger" onclick="return confirm('정말로 탈퇴하시겠습니까?')">회원탈퇴</button>
+            <button type="submit" class="btn btn-danger" onclick="return confirm('모든 데이터가 삭제됩니다. 그래도 진행하시겠습니까?')">회원탈퇴</button>
             <a href="mainpage.jsp" class="btn btn-secondary" onclick="return confirm('탈퇴를 취소하시겠습니까?')">취소</a>
         </div>
     </form>
