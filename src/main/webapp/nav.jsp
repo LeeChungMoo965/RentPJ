@@ -32,7 +32,7 @@
                             <a class="nav-link" href="./ReservaitionPage.jsp">예약</a>
                         </th>
                         <th> 
-                            <a class="nav-link" href="#">게시판</a>
+                            <a class="nav-link" href="postlist.jsp">게시판</a>
                         </th>       
                         <th> 
                             <a class="nav-link" href="adminhome.jsp">관리자페이지</a>
