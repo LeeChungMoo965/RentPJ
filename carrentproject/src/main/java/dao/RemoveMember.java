@@ -49,8 +49,6 @@ public class RemoveMember {
     // 회원 삭제
     public boolean deleteMember(String id) {
 
-        ConnectionFactory factory = new ConnectionFactory();
-
         boolean isSuccess = false;
 
         try {
@@ -58,10 +56,27 @@ public class RemoveMember {
             factory.setconnect();
             conn = factory.getconnect();
 
-            // SQL
-            String sql = "DELETE FROM member WHERE id=?";
+            // 수동 커밋 모드로 전환하여 두 삭제 작업을 하나의 묶음(트랜잭션)으로 처리 (AI 도움)
+            conn.setAutoCommit(false);
 
-            pstmt = conn.prepareStatement(sql);
+            /* 해당 회원이 작성한 모든 게시글(활동 데이터) 삭제 */
+            // SQL
+            String sql_deleteposts = "DELETE FROM posts WHERE writer=?";
+
+            pstmt = conn.prepareStatement(sql_deleteposts);
+            pstmt.setString(1, id);
+
+            // 실행
+            pstmt.executeUpdate();
+
+            // 다음 쿼리 실행을 위해 pstmt 자원 정리
+            pstmt.close();
+
+            /* 회원 테이블에서 회원 정보 삭제 */
+            // SQL
+            String sql_deletemember = "DELETE FROM member WHERE id=?";
+
+            pstmt = conn.prepareStatement(sql_deletemember);
             pstmt.setString(1, id);
 
             // 실행
@@ -69,10 +84,20 @@ public class RemoveMember {
 
             // 삭제 성공 여부
             if (result > 0) {
+                conn.commit();
                 isSuccess = true;
+            } else {
+                conn.rollback();
             }
 
         } catch (Exception e) {
+            try {
+                if (conn != null) {
+                    conn.rollback(); 
+                }
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
             e.printStackTrace();
         } finally {
             // 자원 반납
