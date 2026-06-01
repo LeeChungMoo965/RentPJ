@@ -17,9 +17,7 @@
 <div class="container py-4">
     <div class="p-5 mb-4 bg-body-tertiary rounded-3">
         <%
-            String sessionId = (String) session.getAttribute("sessionId");
-            
-            if (sessionId == null) {
+            if (user_id == null) {
                 response.sendRedirect("login.jsp");
                 return; 
             }
@@ -27,7 +25,7 @@
 
         <div class="container-fluid py-5">
             <h1 class="display-5 fw-bold">마이페이지</h1>
-            <p class="fs-4"> <%=sessionId%> 님 환영합니다.</p>
+            <p class="fs-4"> <%=user_id%> 님 환영합니다.</p>
         </div>
     </div>
     <div class="row text-center">
