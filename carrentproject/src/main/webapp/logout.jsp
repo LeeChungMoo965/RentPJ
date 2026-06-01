@@ -10,7 +10,9 @@
     cookie.setPath("/");
 
     response.addCookie(cookie);
-
-    // 메인페이지 이동
-    response.sendRedirect("mainpage.jsp");
 %>
+
+<script>
+    alert("로그아웃이 성공하였습니다.");
+    location.href="mainpage.jsp";
+</script>
