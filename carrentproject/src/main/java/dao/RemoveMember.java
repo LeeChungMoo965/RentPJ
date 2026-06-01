@@ -59,6 +59,19 @@ public class RemoveMember {
             // 수동 커밋 모드로 전환하여 두 삭제 작업을 하나의 묶음(트랜잭션)으로 처리 (AI 도움)
             conn.setAutoCommit(false);
 
+            /* 해당 회원이 작성한 모든 예약 내역(활동 데이터) 삭제 */
+            // SQL
+            String sql_delete_reservation = "DELETE FROM reservation WHERE id=?";
+
+            pstmt = conn.prepareStatement(sql_delete_reservation);
+            pstmt.setString(1, id);
+
+            // 실행
+            pstmt.executeUpdate();
+
+            // 다음 쿼리 실행을 위해 pstmt 자원 정리
+            pstmt.close();
+
             /* 해당 회원이 작성한 모든 게시글(활동 데이터) 삭제 */
             // SQL
             String sql_deleteposts = "DELETE FROM posts WHERE writer=?";
