@@ -48,22 +48,22 @@
 
             <div class="mb-4">
                 <label class="form-label">생년월일</label>
-                <input type="date" name="birth" class="form-control form-control-lg rounded-3">
+                <input type="date" name="birth" class="form-control form-control-lg rounded-3" required>
             </div>
 
             <div class="mb-4">
                 <label class="form-label">전화번호</label>
-                <input type="text" id="phone" name="phone" class="form-control form-control-lg rounded-3" placeholder="010-1234-5678">
+                <input type="text" id="phone" name="phone" class="form-control form-control-lg rounded-3" placeholder="010-1234-5678" required>
             </div>
 
             <div class="mb-4">
                 <label class="form-label">이메일</label>
-                <input type="email" id="mail" name="mail" class="form-control form-control-lg rounded-3" placeholder="example@email.com">
+                <input type="email" id="mail" name="mail" class="form-control form-control-lg rounded-3" placeholder="example@email.com" required>
             </div>
 
             <div class="mb-4">
                 <label class="form-label">주소</label>
-                <input type="text" id="address" name="address" class="form-control form-control-lg rounded-3" placeholder="주소를 입력해주세요">
+                <input type="text" id="address" name="address" class="form-control form-control-lg rounded-3" placeholder="주소를 입력해주세요" required>
             </div>
 
             <div class="d-grid">
