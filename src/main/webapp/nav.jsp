@@ -63,7 +63,7 @@
             <%=user_id%>님 환영합니다 !
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="mypage.jsp" style="color : balck">마이페이지</a>
+            <a class="nav-link" href="Mypage.jsp" style="color : balck">마이페이지</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="logout.jsp" style="color : balck">로그아웃</a>
