@@ -1,21 +1,20 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="dto.Member" %>
 <%@ page import="dao.RemoveMember" %>
+<%@ include file="nav.jsp"  %>
 
 <%
-    String sessionId = (String) session.getAttribute("sessionId");
-    
-    if (sessionId == null) {
-        response.sendRedirect("login.jsp");
+    if (user_id == null || user_id.trim().equals("")) {
+        out.println("<script>alert('로그인이 필요합니다.'); location.href='login.jsp';</script>");
         return; 
     }
 
     RemoveMember removeMember = new RemoveMember();
-    Member member = removeMember.getMemberById(sessionId);
+    Member member = removeMember.getMemberById(user_id);
 
     // DB에 세션 ID에 해당하는 회원 정보가 없을 경우의 예외 처리 작업 (AI 도움)
     if (member == null) {
-        out.println("<script>alert('회원 정보를 찾을 수 없습니다.'); location.href='login.jsp';</script>");
+        out.println("<script>alert('회원 정보를 찾을 수 없습니다.'); location.href='sign.jsp';</script>");
         return;
     }
 %>
@@ -24,7 +23,6 @@
 <title>회원 탈퇴</title>
 </head>
 <body style='font-family: "Jua", sans-serif;font-weight: 100;font-style: normal;'>
-<%@ include file="nav.jsp"  %>
 <div class="container py-4">
     <div class="p-5 mb-4 bg-body-tertiary rounded-3">
         <div class="container-fluid py-5">
@@ -73,7 +71,7 @@
     </table>
     <div class="text-center mt-3">
         <button type="submit" class="btn btn-danger" onclick="return confirm('정말로 탈퇴하시겠습니까?')">회원탈퇴</button>
-        <a href="mainpage.jsp" class="btn btn-secondary" onclick="return confirm('탈퇴를 취소하시겠습니까?')">취소</a>
+        <a href="Mypage.jsp" class="btn btn-secondary" onclick="return confirm('탈퇴를 취소하시겠습니까?')">취소</a>
     </div>
     </form>
 </div>
