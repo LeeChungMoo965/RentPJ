@@ -85,7 +85,7 @@ public class RemoveMember {
 
             /* 해당 회원이 작성한 모든 게시글(활동 데이터) 삭제 */
             // SQL
-            /* 
+
             String sql_deleteposts = "DELETE FROM posts WHERE writer=?";
 
             pstmt = conn.prepareStatement(sql_deleteposts);
@@ -96,7 +96,7 @@ public class RemoveMember {
 
             // 다음 쿼리 실행을 위해 pstmt 자원 정리
             pstmt.close();
-*/
+
             /* 회원 테이블에서 회원 정보 삭제 */
             // SQL
             String sql_deletemember = "DELETE FROM member WHERE id =?";
