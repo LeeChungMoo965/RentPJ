@@ -4,28 +4,33 @@
 <%@ include file="nav.jsp" %>
 
 <%
-request.setCharacterEncoding("utf-8");
+    request.setCharacterEncoding("utf-8");
 
-String password = request.getParameter("password");
+    if (user_id == null || user_id.trim().equals("")) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
 
-// nav.jsp의 isLogin 변수로 로그인 체크
+    String password = request.getParameter("password");
 
-RemoveMember removeMember = new RemoveMember();
+    // nav.jsp의 isLogin 변수로 로그인 체크
 
-// ❌ 기존: removeMember.getMemberById(id); -> id 변수가 없음 에러!
-//  개선: nav.jsp에서 찾아놓은 'user_id' 변수를 사용합니다.
-Member member = removeMember.getMemberById(user_id);
+    RemoveMember removeMember = new RemoveMember();
 
-// 회원 존재 여부 확인
-if(member == null){
-%>
-    <script>
-        alert("회원 정보를 찾을 수 없습니다.");
-        location.href="signup.jsp";
-    </script>
-<%
-return;
-}
+    // ❌ 기존: removeMember.getMemberById(id); -> id 변수가 없음 에러!
+    //  개선: nav.jsp에서 찾아놓은 'user_id' 변수를 사용합니다.
+    Member member = removeMember.getMemberById(user_id);
+
+    // 회원 존재 여부 확인
+    if(member == null){
+    %>
+        <script>
+            alert("회원 정보를 찾을 수 없습니다.");
+            location.href="login.jsp";
+        </script>
+    <%
+    return;
+    }
 
 // 비밀번호 확인
 if (member.getPassword() == null || !member.getPassword().equals(password)){
