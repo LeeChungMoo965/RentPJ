@@ -17,10 +17,14 @@
 <div class="container py-4">
     <div class="p-5 mb-4 bg-body-tertiary rounded-3">
         <h2 class="text-center mb-4">회원가입</h2>
-        <form name= "signup" action="signup_process.jsp" method="post">
+        <form name= "signup" action="signup_process.jsp" method="post" onsubmit="return checkSignup()">
             <div class="mb-4">
                 <label class="form-label">아이디</label>
-                <input type="text" id="id" name="id" class="form-control form-control-lg rounded-3" placeholder="아이디를 입력하세요" required>
+                <div class="input-group">
+                    <input type="text" id="id" name="id" class="form-control form-control-lg" placeholder="아이디를 입력하세요" required>
+                    <button type="button" class="btn btn-secondary" onclick="checkIdDup()">중복 확인</button>
+                </div>
+                <input type="hidden" id="idCheckFlag" value="0">
             </div>
 
             <div class="mb-4">
@@ -37,7 +41,7 @@
                 <label class="form-label">성별</label>
                 <!--bootstrap 체크박스 인라인 활용-->
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" value="남자">
+                    <input class="form-check-input" type="radio" name="gender" value="남자" checked>
                     <label class="form-check-label">남자</label>
                 </div>
                 <div class="form-check form-check-inline">
