@@ -3,8 +3,60 @@ import java.sql.SQLException;
 import dto.Member;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 
 public class AddMember {
+
+    private static final String ID_CHECK_NOT_DONE = "0";
+    private static final String ID_CHECK_SUCCESS = "1";
+
+    public static String getIdCheckNotDone() {
+        return ID_CHECK_NOT_DONE;
+    }
+
+    public static String getIdCheckSuccess() {
+        return ID_CHECK_SUCCESS;
+    }
+
+    public boolean checkIdDuplicate(String id) {
+
+        // 팩토리 개체 생성
+        ConnectionFactory factory = new ConnectionFactory();
+
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        
+        boolean isExitId = false; 
+
+        try {
+            factory.setconnect();
+            conn = factory.getconnect();
+
+            // 입력받은 id가 member 테이블에 존재하는지 확인하는 쿼리
+            String sql = "SELECT id FROM member WHERE id = ?";
+            
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, id);
+            
+            rs = pstmt.executeQuery();
+
+            // 결과가 존재하면 이미 해당 ID가 DB에 있음 (중복 발생)
+            if (rs.next()) {
+                isExitId = true; 
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // 자원 반납
+            if (rs != null) { try { rs.close(); } catch (SQLException e) {} }
+            if (pstmt != null) { try { pstmt.close(); } catch (SQLException e) {} }
+            if (conn != null) { try { conn.close(); } catch (SQLException e) {} }
+        }
+
+        return isExitId;
+    }
+
     public boolean insertMember(Member member) {
 
         // 팩토리 개체 생성
